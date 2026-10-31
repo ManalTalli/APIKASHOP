@@ -1,34 +1,76 @@
-﻿using KASHOP.DAL.Data;
+﻿using KASHOP.DAL.Data;  
 using KASHOP.DAL.Models;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.Linq.Expressions;
 using System.Text;
 
 namespace KASHOP.DAL.Repositories
 {
-    public class GenericRepository<T> where T : class
+    public class GenericRepository<T> : IGenericRepository<T> where T : class
     {
-        ApplicationDbContext context = new ApplicationDbContext();
-        public void Create(T entity)
+        private readonly ApplicationDbContext _context ;
+        public GenericRepository(ApplicationDbContext context)
         {
-            context.Set<T>().Add(entity);
-            context.SaveChanges();
+            _context = context;
         }
-        public void Update(T entity)
+        public async Task CreateAsync(T entity, CancellationToken cancellationToken = default)
         {
-            context.Set<T>().Update(entity);
-            context.SaveChanges();
+           await _context.Set<T>().AddAsync(entity, cancellationToken);
+           await _context.SaveChangesAsync(cancellationToken);
         }
-        public void Remove(T entity)
+        public async Task UpdateAsync(T entity, CancellationToken cancellationToken = default)
         {
-            context.Set<T>().Remove(entity);
-            context.SaveChanges();
+            _context.Set<T>().Update(entity);
+           await _context.SaveChangesAsync(cancellationToken);
         }
-        public List<T> Get() 
+        public async Task RemoveAsync(T entity, CancellationToken cancellationToken = default)
         {
-                var entities = context.Set<T>().AsNoTracking().ToList();
-            return entities;
+            _context.Set<T>().Remove(entity);
+           await _context.SaveChangesAsync(cancellationToken);
+        }
+        public async Task<List<T>> GetAsync(Expression<Func<T,bool>>? filter = null,
+            List<Expression<Func<T,object>>>? includes = null,
+            bool tracked = false,
+            CancellationToken cancellationToken = default) 
+        {
+                IQueryable<T> query =_context.Set<T>().AsQueryable();
+            if (!tracked)
+                query = query.AsNoTracking();
+
+           
+
+            if (includes is not null)
+            {
+                foreach (var include in includes)
+                {
+                    query = query.Include(include);
+                }
+            }
+            return await query.ToListAsync(cancellationToken);
+        }
+
+        public async Task<T?> GetOneAsync(Expression<Func<T, bool>> filter = null,
+            List<Expression<Func<T, object>>>? includes = null,
+            bool tracked = false,
+            CancellationToken cancellationToken = default)
+        {
+            IQueryable<T> query = _context.Set<T>().AsQueryable();
+            if (!tracked)
+                query = query.AsNoTracking();
+
+            if (filter is not null)
+                query = query.Where(filter);
+
+            if (includes is not null)
+            {
+                foreach (var include in includes)
+                {
+                    query = query.Include(include);
+                }
+            }
+            return await query.FirstOrDefaultAsync(filter,cancellationToken);
         }
     }
 }

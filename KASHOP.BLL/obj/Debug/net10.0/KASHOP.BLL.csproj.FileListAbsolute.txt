@@ -13,3 +13,20 @@ C:\Users\jc\OneDrive\Desktop\Backend\API\KASHOP\KASHOP.BLL\obj\Debug\net10.0\KAS
 C:\Users\jc\OneDrive\Desktop\Backend\API\KASHOP\KASHOP.BLL\obj\Debug\net10.0\refint\KASHOP.BLL.dll
 C:\Users\jc\OneDrive\Desktop\Backend\API\KASHOP\KASHOP.BLL\obj\Debug\net10.0\KASHOP.BLL.pdb
 C:\Users\jc\OneDrive\Desktop\Backend\API\KASHOP\KASHOP.BLL\obj\Debug\net10.0\ref\KASHOP.BLL.dll
+C:\Users\jc\OneDrive\Desktop\Backend\API\KASHOP\KASHOP.BLL\obj\Debug\net10.0\KASHOP.BLL.sourcelink.json
+C:\Users\jc\OneDrive\Desktop\Full Stack\Backend\API\KASHOP\KASHOP.BLL\obj\Debug\net10.0\KASHOP.BLL.csproj.AssemblyReference.cache
+C:\Users\jc\OneDrive\Desktop\Full Stack\Backend\API\KASHOP\KASHOP.BLL\obj\Debug\net10.0\KASHOP.BLL.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\jc\OneDrive\Desktop\Full Stack\Backend\API\KASHOP\KASHOP.BLL\obj\Debug\net10.0\KASHOP.BLL.AssemblyInfoInputs.cache
+C:\Users\jc\OneDrive\Desktop\Full Stack\Backend\API\KASHOP\KASHOP.BLL\obj\Debug\net10.0\KASHOP.BLL.AssemblyInfo.cs
+C:\Users\jc\OneDrive\Desktop\Full Stack\Backend\API\KASHOP\KASHOP.BLL\obj\Debug\net10.0\KASHOP.BLL.csproj.CoreCompileInputs.cache
+C:\Users\jc\OneDrive\Desktop\Full Stack\Backend\API\KASHOP\KASHOP.BLL\obj\Debug\net10.0\KASHOP.BLL.sourcelink.json
+C:\Users\jc\OneDrive\Desktop\Full Stack\Backend\API\KASHOP\KASHOP.BLL\obj\Debug\net10.0\KASHOP.BLL.dll
+C:\Users\jc\OneDrive\Desktop\Full Stack\Backend\API\KASHOP\KASHOP.BLL\obj\Debug\net10.0\refint\KASHOP.BLL.dll
+C:\Users\jc\OneDrive\Desktop\Full Stack\Backend\API\KASHOP\KASHOP.BLL\obj\Debug\net10.0\KASHOP.BLL.pdb
+C:\Users\jc\OneDrive\Desktop\Full Stack\Backend\API\KASHOP\KASHOP.BLL\bin\Debug\net10.0\KASHOP.BLL.deps.json
+C:\Users\jc\OneDrive\Desktop\Full Stack\Backend\API\KASHOP\KASHOP.BLL\bin\Debug\net10.0\KASHOP.BLL.dll
+C:\Users\jc\OneDrive\Desktop\Full Stack\Backend\API\KASHOP\KASHOP.BLL\bin\Debug\net10.0\KASHOP.BLL.pdb
+C:\Users\jc\OneDrive\Desktop\Full Stack\Backend\API\KASHOP\KASHOP.BLL\bin\Debug\net10.0\KASHOP.DAL.dll
+C:\Users\jc\OneDrive\Desktop\Full Stack\Backend\API\KASHOP\KASHOP.BLL\bin\Debug\net10.0\KASHOP.DAL.pdb
+C:\Users\jc\OneDrive\Desktop\Full Stack\Backend\API\KASHOP\KASHOP.BLL\obj\Debug\net10.0\KASHOP.BLL.csproj.Up2Date
+C:\Users\jc\OneDrive\Desktop\Full Stack\Backend\API\KASHOP\KASHOP.BLL\obj\Debug\net10.0\ref\KASHOP.BLL.dll

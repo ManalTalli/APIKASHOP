@@ -1,5 +1,7 @@
-﻿using KASHOP.DAL;
+﻿using KASHOP.BLL;
+using KASHOP.DAL;
 using KASHOP.DAL.Data;
+using KASHOP.DAL.DTO.Requests;
 using KASHOP.DAL.Models;
 using KASHOP.DAL.Repositories;
 using Microsoft.AspNetCore.Http;
@@ -10,12 +12,17 @@ namespace KASHOP.PL.Controllers
     [ApiController]
     public class CategoriesController : ControllerBase
     {
-        GenericRepository<Category> repo = new GenericRepository<Category>();
-        [HttpGet("")]
-        public IActionResult Index()
+        private readonly ICategoryService _service;
+        public CategoriesController(ICategoryService service)
         {
-            var categories = repo.Get();
-            
+
+            _service = service;
+        }
+        [HttpGet("")]
+        public async Task<IActionResult> Index(CancellationToken cancellationToken=default)
+        {
+            var categories =await _service.GetAllAsync(cancellationToken);
+
             return Ok(categories);
         }
         //[HttpGet("{id}")]
@@ -25,13 +32,24 @@ namespace KASHOP.PL.Controllers
         //    return Ok(category);
         //}
         [HttpPost("")]
-        public IActionResult Create (Category category)
+        public async Task<IActionResult> Create (CategoryRequest request,CancellationToken cancellationToken)
         {
-            repo.Create (category);
-            return Ok();
+            var result = await _service.CreateAsync(request, cancellationToken);
+            return result ?Ok() : BadRequest();
+        }
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetById(int id, CancellationToken cancellationToken = default)
+        {
+            var result= await _service.GetByIdAsync(id, cancellationToken);
+            return result is not null? Ok(result):BadRequest();
+        }
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> Delete( int id,CancellationToken cancellationToken)
+        {
+            var result = await _service.DeleteAsync(id, cancellationToken);
+            return result?NoContent():BadRequest();
         }
 
 
-
-    }
+    } 
 }

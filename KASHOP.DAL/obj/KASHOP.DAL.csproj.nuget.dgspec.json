@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\jc\\OneDrive\\Desktop\\Backend\\API\\KASHOP\\KASHOP.DAL\\KASHOP.DAL.csproj": {}
+    "C:\\Users\\jc\\OneDrive\\Desktop\\Full Stack\\Backend\\API\\KASHOP\\KASHOP.DAL\\KASHOP.DAL.csproj": {}
   },
   "projects": {
-    "C:\\Users\\jc\\OneDrive\\Desktop\\Backend\\API\\KASHOP\\KASHOP.DAL\\KASHOP.DAL.csproj": {
+    "C:\\Users\\jc\\OneDrive\\Desktop\\Full Stack\\Backend\\API\\KASHOP\\KASHOP.DAL\\KASHOP.DAL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\jc\\OneDrive\\Desktop\\Backend\\API\\KASHOP\\KASHOP.DAL\\KASHOP.DAL.csproj",
+        "projectUniqueName": "C:\\Users\\jc\\OneDrive\\Desktop\\Full Stack\\Backend\\API\\KASHOP\\KASHOP.DAL\\KASHOP.DAL.csproj",
         "projectName": "KASHOP.DAL",
-        "projectPath": "C:\\Users\\jc\\OneDrive\\Desktop\\Backend\\API\\KASHOP\\KASHOP.DAL\\KASHOP.DAL.csproj",
+        "projectPath": "C:\\Users\\jc\\OneDrive\\Desktop\\Full Stack\\Backend\\API\\KASHOP\\KASHOP.DAL\\KASHOP.DAL.csproj",
         "packagesPath": "C:\\Users\\jc\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\jc\\OneDrive\\Desktop\\Backend\\API\\KASHOP\\KASHOP.DAL\\obj\\",
+        "outputPath": "C:\\Users\\jc\\OneDrive\\Desktop\\Full Stack\\Backend\\API\\KASHOP\\KASHOP.DAL\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -65,6 +65,10 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[10.0.12, )"
+            },
+            "System.Security.Cryptography.Pkcs": {
+              "target": "Package",
+              "version": "[10.0.14, )"
             }
           },
           "imports": [
@@ -83,7 +87,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.401/PortableRuntimeIdentifierGraph.json",
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.403/PortableRuntimeIdentifierGraph.json",
           "packagesToPrune": {
             "Microsoft.CSharp": "(,4.7.32767]",
             "Microsoft.VisualBasic": "(,10.4.32767]",

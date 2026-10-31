@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "LqOCu/Q4pI4=",
+  "dgSpecHash": "AkcgrEB7KzE=",
   "success": true,
-  "projectFilePath": "C:\\Users\\jc\\OneDrive\\Desktop\\Backend\\API\\KASHOP\\KASHOP.DAL\\KASHOP.DAL.csproj",
+  "projectFilePath": "C:\\Users\\jc\\OneDrive\\Desktop\\Full Stack\\Backend\\API\\KASHOP\\KASHOP.DAL\\KASHOP.DAL.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\jc\\.nuget\\packages\\azure.core\\1.50.0\\azure.core.1.50.0.nupkg.sha512",
     "C:\\Users\\jc\\.nuget\\packages\\azure.identity\\1.17.1\\azure.identity.1.17.1.nupkg.sha512",
@@ -60,7 +60,7 @@
     "C:\\Users\\jc\\.nuget\\packages\\system.diagnostics.eventlog\\9.0.11\\system.diagnostics.eventlog.9.0.11.nupkg.sha512",
     "C:\\Users\\jc\\.nuget\\packages\\system.identitymodel.tokens.jwt\\7.7.1\\system.identitymodel.tokens.jwt.7.7.1.nupkg.sha512",
     "C:\\Users\\jc\\.nuget\\packages\\system.memory.data\\8.0.1\\system.memory.data.8.0.1.nupkg.sha512",
-    "C:\\Users\\jc\\.nuget\\packages\\system.security.cryptography.pkcs\\9.0.11\\system.security.cryptography.pkcs.9.0.11.nupkg.sha512",
+    "C:\\Users\\jc\\.nuget\\packages\\system.security.cryptography.pkcs\\10.0.14\\system.security.cryptography.pkcs.10.0.14.nupkg.sha512",
     "C:\\Users\\jc\\.nuget\\packages\\system.security.cryptography.protecteddata\\9.0.11\\system.security.cryptography.protecteddata.9.0.11.nupkg.sha512"
   ],
   "logs": []

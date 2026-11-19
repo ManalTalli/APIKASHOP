@@ -13,6 +13,6 @@ namespace KASHOP.DAL.DTO.Requests
         public string PhoneNumber { get; set; } = null!;
         public string Password { get; set; } = null!;
         [Compare(nameof(Password))]
-        public string ConfrimPassword { get; set; } = null!;
+        public string ConfirmPassword { get; set; } = null!;
     }
 }

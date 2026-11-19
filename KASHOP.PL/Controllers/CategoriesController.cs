@@ -4,12 +4,14 @@ using KASHOP.DAL.Data;
 using KASHOP.DAL.DTO.Requests;
 using KASHOP.DAL.Models;
 using KASHOP.DAL.Repositories;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 namespace KASHOP.PL.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class CategoriesController : ControllerBase
     {
         private readonly ICategoryService _service;
@@ -19,19 +21,16 @@ namespace KASHOP.PL.Controllers
             _service = service;
         }
         [HttpGet("")]
+
         public async Task<IActionResult> Index(CancellationToken cancellationToken=default)
         {
             var categories =await _service.GetAllAsync(cancellationToken);
 
             return Ok(categories);
         }
-        //[HttpGet("{id}")]
-        //public IActionResult GetById (int id)
-        //{
-        //    var category = context.Categories.Find(id);
-        //    return Ok(category);
-        //}
+       
         [HttpPost("")]
+        
         public async Task<IActionResult> Create (CategoryRequest request,CancellationToken cancellationToken)
         {
             var result = await _service.CreateAsync(request, cancellationToken);

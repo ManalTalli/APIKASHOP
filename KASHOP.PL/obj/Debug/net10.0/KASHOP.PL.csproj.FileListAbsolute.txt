@@ -346,3 +346,4 @@ C:\Users\jc\OneDrive\Desktop\Full Stack\Backend\API\KASHOP\KASHOP.PL\obj\Debug\n
 C:\Users\jc\OneDrive\Desktop\Full Stack\Backend\API\KASHOP\KASHOP.PL\obj\Debug\net10.0\ref\KASHOP.PL.dll
 C:\Users\jc\OneDrive\Desktop\Full Stack\Backend\API\KASHOP\KASHOP.PL\bin\Debug\net10.0\KASHOP.PL.staticwebassets.runtime.json
 C:\Users\jc\OneDrive\Desktop\Full Stack\Backend\API\KASHOP\KASHOP.PL\bin\Debug\net10.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+C:\Users\jc\OneDrive\Desktop\Full Stack\Backend\API\KASHOP\KASHOP.PL\bin\Debug\net10.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll

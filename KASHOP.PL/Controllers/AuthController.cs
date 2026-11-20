@@ -15,7 +15,7 @@ namespace KASHOP.PL.Controllers
             _authService = authService;
         }
         [HttpPost("Register")]
-        public async Task <IActionResult> Register(RegisterRequest Request)
+        public async Task<IActionResult> Register(RegisterRequest Request)
         {
             var (success, errors) = await _authService.RegisterAsync(Request);
             return success ? Ok() : BadRequest();
@@ -23,9 +23,16 @@ namespace KASHOP.PL.Controllers
         [HttpPost("Login")]
         public async Task<IActionResult> Login(LoginRequest Request)
         {
-            var (success, error,response) = await _authService.LoginAsync(Request);
-            return success ? Ok(response) : BadRequest(new {error});
+            var (success, error, response) = await _authService.LoginAsync(Request);
+            return success ? Ok(response) : BadRequest(new { error });
         }
 
+        [HttpGet("confirm-email")]
+        public async Task<IActionResult> ConfirmEmail([FromQuery] string userId, [FromQuery] string token)
+        {
+            var (success, error) = await _authService.ConfirmEmailAsync(userId, token);
+            return success ? Ok("done") : BadRequest(new { error });
+
+        }
     }
 }

@@ -125,10 +125,26 @@ namespace KASHOP.DAL.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<string>("CreateById")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
                     b.Property<bool>("Status")
                         .HasColumnType("bit");
 
+                    b.Property<string>("UpdateById")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<DateTime>("UpdatedAt")
+                        .HasColumnType("datetime2");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("CreateById");
+
+                    b.HasIndex("UpdateById");
 
                     b.ToTable("Categories");
                 });
@@ -170,6 +186,12 @@ namespace KASHOP.DAL.Migrations
                     b.Property<int>("CategoryId")
                         .HasColumnType("int");
 
+                    b.Property<string>("CreateById")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
                     b.Property<decimal>("Discount")
                         .HasColumnType("decimal(18,2)");
 
@@ -187,9 +209,19 @@ namespace KASHOP.DAL.Migrations
                     b.Property<double>("Rate")
                         .HasColumnType("float");
 
+                    b.Property<string>("UpdateById")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<DateTime>("UpdatedAt")
+                        .HasColumnType("datetime2");
+
                     b.HasKey("Id");
 
                     b.HasIndex("CategoryId");
+
+                    b.HasIndex("CreateById");
+
+                    b.HasIndex("UpdateById");
 
                     b.ToTable("Products");
                 });
@@ -359,6 +391,21 @@ namespace KASHOP.DAL.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
+            modelBuilder.Entity("KASHOP.DAL.Models.Category", b =>
+                {
+                    b.HasOne("KASHOP.DAL.Models.ApplicationUser", "CreateBy")
+                        .WithMany()
+                        .HasForeignKey("CreateById");
+
+                    b.HasOne("KASHOP.DAL.Models.ApplicationUser", "UpdateBy")
+                        .WithMany()
+                        .HasForeignKey("UpdateById");
+
+                    b.Navigation("CreateBy");
+
+                    b.Navigation("UpdateBy");
+                });
+
             modelBuilder.Entity("KASHOP.DAL.Models.CategoryTranslation", b =>
                 {
                     b.HasOne("KASHOP.DAL.Models.Category", "Category")
@@ -378,7 +425,19 @@ namespace KASHOP.DAL.Migrations
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
+                    b.HasOne("KASHOP.DAL.Models.ApplicationUser", "CreateBy")
+                        .WithMany()
+                        .HasForeignKey("CreateById");
+
+                    b.HasOne("KASHOP.DAL.Models.ApplicationUser", "UpdateBy")
+                        .WithMany()
+                        .HasForeignKey("UpdateById");
+
                     b.Navigation("Category");
+
+                    b.Navigation("CreateBy");
+
+                    b.Navigation("UpdateBy");
                 });
 
             modelBuilder.Entity("KASHOP.DAL.Models.ProductTranslation", b =>

@@ -23,13 +23,16 @@ namespace KASHOP.BLL.Settings
         private readonly ITokenService _tokenService;
         private readonly SignInManager<ApplicationUser> _signinManeger;
 
+        private readonly IEmailService _emailService;
+
         public AuthService(UserManager<ApplicationUser> userManager, IConfiguration configration,ITokenService tokenService,
-            SignInManager<ApplicationUser> signinManeger)
+            SignInManager<ApplicationUser> signinManeger, IEmailService EmailService)
         {
             _userManager = userManager;
             _configration = configration;
             _tokenService = tokenService;
             _signinManeger = signinManeger;
+            _emailService = EmailService;
         }
 
         public async Task<(bool Success, List<string> Errors)> RegisterAsync(RegisterRequest request)
@@ -39,6 +42,17 @@ namespace KASHOP.BLL.Settings
 
             if (!result.Succeeded)
                 return (false, result.Errors.Select(e => e.Description).ToList());
+
+            var token = await _userManager.GenerateEmailConfirmationTokenAsync(user);
+            var encodedToken = Uri.EscapeDataString(token);
+            var link = $"https://localhost:7146/api/auth/confirm-email?userId={user.Id}&token={encodedToken}";
+
+            await _emailService.SendEmailAsync(user.Email,"Confirm your email","" +
+                "<div>" +
+                $"<h2>welcom {user.UserName}</h2>"+
+                $"<p>please confirm your email by clicking the link below "+
+                $"<a href='{link}'>Confirm Email</a>"+
+                "</div>");
 
             await _userManager.AddToRoleAsync(user, "User");
             return (true, []);
@@ -68,6 +82,19 @@ namespace KASHOP.BLL.Settings
                 Token = token
             };
             return (true, [], response);
+        }
+
+        public async Task<(bool Success,string?Error)> ConfirmEmailAsync(string userId,string token)
+        {
+            var user = await _userManager.FindByIdAsync(userId);
+            if (user is null)
+                return (false, "invalid confirmation link");
+
+            if (user.EmailConfirmed)
+                return (true, null);
+
+            var result = await _userManager.ConfirmEmailAsync(user, token);
+            return result.Succeeded ? (true, null) : (false, "invalid or expired confirmation link");
         }
 
     }

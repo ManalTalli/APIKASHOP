@@ -7,6 +7,7 @@ using KASHOP.DAL.Repositories;
 using KASHOP.PL.Utils;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
@@ -28,7 +29,7 @@ namespace KASHOP.PL
             // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
             builder.Services.AddOpenApi();
 
-            
+            builder.Services.AddHttpContextAccessor();
 
             builder.Services.Configure<RequestLocalizationOptions>(options => {
                 options.SetDefaultCulture(SupportedLanguages.Default);
@@ -50,6 +51,7 @@ namespace KASHOP.PL
                 options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(5);
                 options.Lockout.AllowedForNewUsers = true;
                 options.SignIn.RequireConfirmedEmail = true;
+                options.User.RequireUniqueEmail = true;
 
             }).AddEntityFrameworkStores<ApplicationDbContext>().AddDefaultTokenProviders();
 
@@ -82,6 +84,8 @@ namespace KASHOP.PL
             builder.Services.AddScoped<ISeedData, RoleSeedData>();
             builder.Services.AddScoped<IAuthService, AuthService>();
             builder.Services.AddScoped<ITokenService, TokenService>();
+            builder.Services.AddTransient<IEmailService, EmailService>();
+
 
             builder.Services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
